@@ -790,7 +790,7 @@ class Upgrader {
     }
 
     if (shouldPop) {
-      popNavigator(context);
+//       popNavigator(context);
     }
   }
 
@@ -822,7 +822,7 @@ class Upgrader {
     await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
 
     _lastVersionAlerted = _appStoreVersion;
-    await prefs.setString('lastVersionAlerted', _lastVersionAlerted ?? '');
+//     await prefs.setString('lastVersionAlerted', _lastVersionAlerted ?? '');
 
     _hasAlerted = true;
     return true;

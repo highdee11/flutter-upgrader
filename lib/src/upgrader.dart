@@ -657,14 +657,23 @@ class Upgrader {
       actions: <Widget>[
         if (showIgnore)
           TextButton(
-              child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!),
+              child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary
+              ),),
               onPressed: () => onUserIgnored(context, true)),
         if (showLater)
           TextButton(
-              child: Text(messages.message(UpgraderMessage.buttonTitleLater)!),
+              child: Text(messages.message(UpgraderMessage.buttonTitleLater)!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary
+              ),),
               onPressed: () => onUserLater(context, true)),
         TextButton(
-            child: Text(messages.message(UpgraderMessage.buttonTitleUpdate)!),
+            child: Text(messages.message(UpgraderMessage.buttonTitleUpdate)!,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary
+            ),),
             onPressed: () => onUserUpdated(context, !blocked())),
       ],
     );
@@ -704,15 +713,24 @@ class Upgrader {
       actions: <Widget>[
         if (showIgnore)
           CupertinoDialogAction(
-              child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!),
+              child: Text(messages.message(UpgraderMessage.buttonTitleIgnore)!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary
+              )),
               onPressed: () => onUserIgnored(context, true)),
         if (showLater)
           CupertinoDialogAction(
-              child: Text(messages.message(UpgraderMessage.buttonTitleLater)!),
+              child: Text(messages.message(UpgraderMessage.buttonTitleLater)!,
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.secondary
+              )),
               onPressed: () => onUserLater(context, true)),
         CupertinoDialogAction(
             isDefaultAction: true,
-            child: Text(messages.message(UpgraderMessage.buttonTitleUpdate)!),
+            child: Text(messages.message(UpgraderMessage.buttonTitleUpdate)!,
+            style: TextStyle(
+              color: Theme.of(context).colorScheme.secondary
+            )),
             onPressed: () => onUserUpdated(context, !blocked())),
       ],
     );

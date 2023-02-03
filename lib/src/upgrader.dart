@@ -161,7 +161,7 @@ class Upgrader {
     this.debugDisplayAlways = false,
     this.debugDisplayOnce = false,
     this.debugLogging = false,
-    this.durationUntilAlertAgain = const Duration(days: 3),
+    this.durationUntilAlertAgain = const Duration(seconds: 1),
     this.onIgnore,
     this.onLater,
     this.onUpdate,
@@ -819,8 +819,7 @@ class Upgrader {
   Future<bool> saveLastAlerted() async {
     var prefs = await SharedPreferences.getInstance();
     _lastTimeAlerted = DateTime.now();
-//     await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
-
+    await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
       
     _lastVersionAlerted = _appStoreVersion;
     await prefs.setString('lastVersionAlerted', _lastVersionAlerted ?? '');

@@ -819,7 +819,7 @@ class Upgrader {
   Future<bool> saveLastAlerted() async {
     var prefs = await SharedPreferences.getInstance();
     _lastTimeAlerted = DateTime.now();
-    await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
+//     await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
 
     _lastVersionAlerted = _appStoreVersion;
 //     await prefs.setString('lastVersionAlerted', _lastVersionAlerted ?? '');

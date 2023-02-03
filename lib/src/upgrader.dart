@@ -821,6 +821,7 @@ class Upgrader {
     _lastTimeAlerted = DateTime.now();
 //     await prefs.setString('lastTimeAlerted', _lastTimeAlerted.toString());
 
+      
     _lastVersionAlerted = _appStoreVersion;
     await prefs.setString('lastVersionAlerted', _lastVersionAlerted ?? '');
 

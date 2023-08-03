@@ -407,6 +407,7 @@ class Upgrader {
 
   /// Only called by [UpgradeAlert].
   void checkVersion({required BuildContext context}) {
+    print("checking version");
     if (!_displayed) {
       final shouldDisplay = shouldDisplayUpgrade();
       if (debugLogging) {

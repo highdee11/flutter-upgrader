@@ -415,7 +415,7 @@ class Upgrader {
       }
       if (shouldDisplay) {
         _displayed = true;
-        Future.delayed(const Duration(seconds: 8), () {
+        Future.delayed(const Duration(seconds: 10), () {
           _showDialog(
               context: context,
               title: messages.message(UpgraderMessage.title),

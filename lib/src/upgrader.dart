@@ -414,9 +414,11 @@ class Upgrader {
         print(
             'upgrader: shouldDisplayReleaseNotes: ${shouldDisplayReleaseNotes()}');
       }
+      print("checking version ${shouldDisplay}");
       if (shouldDisplay) {
         _displayed = true;
         Future.delayed(const Duration(seconds: 5), () {
+          print("Should show ${shouldDisplay}");
           _showDialog(
               context: context,
               title: messages.message(UpgraderMessage.title),

@@ -9,9 +9,10 @@ import 'package:upgrader/upgrader.dart';
 class UpgradeAlert extends UpgradeBase {
   /// The [child] contained by the widget.
   final Widget? child;
+  final GlobalKey<NavigatorState> navState;
 
   /// Creates a new [UpgradeAlert].
-  UpgradeAlert({Key? key, Upgrader? upgrader, this.child})
+  UpgradeAlert({Key? key, Upgrader? upgrader, required this.navState, this.child})
       : super(upgrader ?? Upgrader.sharedInstance, key: key);
 
   /// Describes the part of the user interface represented by this widget.
@@ -21,15 +22,19 @@ class UpgradeAlert extends UpgradeBase {
       print('upgrader: build UpgradeAlert');
     }
 
-    return FutureBuilder(
-        future: state.initialized,
-        builder: (BuildContext context, AsyncSnapshot<bool> processed) {
-          if (processed.connectionState == ConnectionState.done &&
-              processed.data != null &&
-              processed.data!) {
-            upgrader.checkVersion(context: context);
-          }
-          return child ?? Container();
-        });
+   try{
+     return FutureBuilder(
+         future: state.initialized,
+         builder: (BuildContext context, AsyncSnapshot<bool> processed) {
+           if (processed.connectionState == ConnectionState.done &&
+               processed.data != null &&
+               processed.data!) {
+             upgrader.checkVersion(context: navState!.currentState!.context);
+           }
+           return child ?? Container();
+         });
+   }catch(e){
+      return Container();
+   }
   }
 }
